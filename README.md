@@ -21,18 +21,8 @@ python main.py
 - **↑/↓** → Navegar nas opções
 - **Enter** → Confirmar resposta
 
-## O que vem pronto
-✔ Player com movimento  
-✔ NPC com pergunta  
-✔ Sistema de escolhas  
-✔ Tilemap 8-bit  
-✔ Tileset incluído em: `/assets/tileset_16x16.png`  
-
 ## Estrutura
 - `main.py` — Loop principal  
 - `engine/` — Player, NPC, diálogo, tilemap, gerenciador de cenas  
 - `assets/` — Tileset  
 - `data/perguntas.json` — Perguntas do jogo  
-
----
-Agora você só precisa personalizar perguntas, sprites e fases 🔥
