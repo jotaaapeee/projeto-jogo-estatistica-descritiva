@@ -1,0 +1,1 @@
+Coloque aqui seus assets 8-bit (tiles, sprites, fontes). Recomendo olhar itch.io, OpenGameArt.org e Kenney.nl.
