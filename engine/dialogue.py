@@ -26,6 +26,9 @@ class Dialogue:
             elif event.key == pygame.K_RETURN or event.key == pygame.K_SPACE:
                 self.result = (self.selected == self.question['correta'])
                 self.visible = False
+            elif event.key == pygame.K_ESCAPE:
+                # Fecha diálogo sem responder (não perde vida, não avança)
+                self.visible = False
 
     def draw(self):
         if not self.visible:
@@ -47,3 +50,8 @@ class Dialogue:
             prefix = ">" if i == self.selected else " "
             txt = self.font.render(f"{prefix} {opt}", True, (220,220,220))
             self.screen.blit(txt, (box_rect.x + 16, y + i * (self.font.get_height() + 6)))
+        
+        # Dica para sair
+        hint_txt = self.font.render("ESC para sair", True, (150, 150, 150))
+        self.screen.blit(hint_txt, (box_rect.x + box_rect.width - hint_txt.get_width() - 8, 
+                                     box_rect.y + box_rect.height - hint_txt.get_height() - 4))
