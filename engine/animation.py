@@ -99,3 +99,4 @@ class Animation:
         if self.loop:
             return False
         return self.current_frame >= self.num_frames - 1 and not self.is_playing
+
