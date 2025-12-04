@@ -35,10 +35,8 @@ class SceneManager:
         """Carrega a fase atual com a pergunta correspondente"""
         if self.current_phase < len(self.questions):
             q = self.questions[self.current_phase]
-            # Seleciona qual boss usar baseado na fase (cicla entre os 3 bosses)
-            boss_index = self.current_phase % 3
             # Posiciona NPC em posição diferente a cada fase (ou pode manter fixo)
-            self.npc = NPC((240, 120), q, boss_index)
+            self.npc = NPC((240, 120), q)
         else:
             self.game_over = True
 

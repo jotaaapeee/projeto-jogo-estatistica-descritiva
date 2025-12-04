@@ -9,8 +9,8 @@ class TileMap:
         # Sala de dungeon maior:
         # - 75  = canto superior esquerdo
         # - 77  = canto superior/direito
-        # - 0   = parede superior (no meio)
-        # - 328 = parede inferior (no meio)
+        # - 76   = parede superior (no meio)
+        # - 101 = parede inferior (no meio)
         # - 129 = parede esquerda
         # - 128 = parede direita
         # - 30  = chão
@@ -36,16 +36,16 @@ class TileMap:
                     elif x == width - 1:
                         tile = 77  # canto sup. direito
                     else:
-                        tile = 0   # topo
+                        tile = 76   # topo
 
                 # última linha: borda inferior
                 elif y == height - 1:
                     if x == 0:
-                        tile = 75
+                        tile = 100
                     elif x == width - 1:
-                        tile = 77
+                        tile = 102
                     else:
-                        tile = 328  # base
+                        tile = 101  # base
 
                 # linhas do meio
                 else:

@@ -7,5 +7,9 @@ class NPC:
         self.color = NPC_COLOR
         self.question = question
 
+    def update(self, dt):
+        """Atualiza o NPC (pode ser usado para animações futuras)"""
+        pass
+
     def draw(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
