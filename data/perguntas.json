@@ -1,12 +1,68 @@
 [
     {
         "id": 1,
-        "texto": "Quanto é 2+2?",
+        "texto": "Alturas das estátuas: 1, 3, 2, 6, 5, 4. Qual é a mediana?",
         "opcoes": [
             "3",
+            "3.5",
             "4",
-            "5"
+            "4.5"
         ],
-        "correta": 1
+        "correta": 3.5
+    },
+    {
+        "id": 2,
+        "texto": "Falhas de feitiço: 1, 1, 2, 3, 3, 3, 4. Qual é a moda?",
+        "opcoes": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "correta": 3
+    },
+    {
+        "id": 3,
+        "texto": "Danos sofridos: 12, 18, 5, 10, 25. Qual é a amplitude?",
+        "opcoes": [
+            "10",
+            "15",
+            "20",
+            "25"
+        ],
+        "correta": 20
+    },
+    {
+        "id": 4,
+        "texto": "Para atravessar a ponte instável, você observa os tempos registrados em segundos: 3, 8, 6, 10, 12, 15. Qual a mediana?",
+        "opcoes": [
+            "7",
+            "8",
+            "9",
+            "11"
+        ],
+        "correta": 9
+    },
+    {
+        "id": 5,
+        "texto": "Uma sala secreta registra o peso dos cristais encontrados: 14, 26, 20, 18. Qual é a amplitude?",
+        "opcoes": [
+            "8",
+            "10",
+            "12",
+            "14"
+        ],
+        "correta": 12
+    },
+    {
+        "id": 6,
+        "texto": "O Dragão Estatístico registrou as quantidades de dano por chama em cinco ataques: 12, 15, 15, 18, 30. Qual é o desvio-padrão populacional desses valores?",
+        "opcoes": [
+            "6",
+            "7",
+            "12.5",
+            "5.5"
+        ],
+        "correta": 6
     }
 ]
