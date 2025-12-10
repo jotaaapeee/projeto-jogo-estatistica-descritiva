@@ -1,28 +1,28 @@
-# Protótipo de Jogo 2D em Python (Estilo Pokémon)
+# QuizRPG Prototype Focused on Statistics
 
-## Requisitos
-- Python 3.8 ou superior
-- Instalar o pygame:
-```
+## Requirements
+- Python 3.8 or higher  
+- Install pygame:
+```bash
 pip install pygame
 ```
 
-## Como rodar
-1. Extraia o projeto.
-2. Abra o terminal na pasta extraída.
-3. Execute:
-```
+## How to Run
+1. Extract the project.  
+2. Open a terminal inside the extracted folder.  
+3. Run:
+```bash
 python main.py
 ```
 
-## Controles
-- **WASD ou Setas** → mover
-- **E** → Interagir com NPC
-- **↑/↓** → Navegar nas opções
-- **Enter** → Confirmar resposta
+## Controls
+- **WASD or Arrow Keys** → Move  
+- **E** → Interact with NPC  
+- **↑/↓** → Navigate options  
+- **Enter** → Confirm answer  
 
-## Estrutura
-- `main.py` — Loop principal  
-- `engine/` — Player, NPC, diálogo, tilemap, gerenciador de cenas  
+## Project Structure
+- `main.py` — Main game loop  
+- `engine/` — Player, NPC, dialogue system, tilemap, scene manager  
 - `assets/` — Tileset  
-- `data/perguntas.json` — Perguntas do jogo  
+- `data/perguntas.json` — Game questions  
