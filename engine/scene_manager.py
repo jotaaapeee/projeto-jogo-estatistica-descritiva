@@ -17,7 +17,8 @@ class SceneManager:
         self.current_phase = 0
         self.game_over = False
 
-        self.tilemap = TileMap(os.path.join("assets","Dungeon_Tiles.png"))
+        # Carrega primeiro mapa
+        self.load_map(0)
         self.player = Player((40, 40))
 
         # Carrega primeira pergunta
@@ -31,12 +32,21 @@ class SceneManager:
         with open(data_path, "r", encoding="utf-8") as f:
             self.questions = json.load(f)
 
+    def load_map(self, map_index):
+        """Carrega um mapa específico"""
+        tileset_path = os.path.join("assets", "Dungeon_Tiles.png")
+        self.tilemap = TileMap(tileset_path, map_index)
+    
     def load_phase(self):
         """Carrega a fase atual com a pergunta correspondente"""
         if self.current_phase < len(self.questions):
+            # Carrega mapa correspondente à fase (cicla entre 6 mapas)
+            map_index = self.current_phase % 6
+            self.load_map(map_index)
+            
             q = self.questions[self.current_phase]
-            # Posiciona NPC em posição diferente a cada fase (ou pode manter fixo)
-            self.npc = NPC((240, 120), q)
+            boss_index = self.current_phase % 3
+            self.npc = NPC((240, 120), q, boss_index)
         else:
             self.game_over = True
 
@@ -46,33 +56,25 @@ class SceneManager:
 
         if self.in_dialogue and self.dialogue.visible:
             self.dialogue.handle_event(event)
-            
-            # Verifica se diálogo foi fechado
+
             if not self.dialogue.visible:
-                # Diálogo foi fechado (ESC ou resposta)
                 if self.dialogue.result is not None:
-                    # Respondeu a pergunta
                     if self.dialogue.result:
-                        # Acertou - avança para próxima fase
                         self.current_phase += 1
                         if self.current_phase < len(self.questions):
                             self.load_phase()
                         else:
-                            # Todas as fases completadas!
                             self.game_over = True
                     else:
-                        # Errou - perde uma vida
                         self.lives -= 1
                         if self.lives <= 0:
                             self.player.die()
                             self.game_over = True
                     
                     self.dialogue.result = None
-                # Se result é None, foi fechado com ESC (não faz nada)
                 
                 self.in_dialogue = False
         else:
-            # Abre diálogo quando player chega perto do NPC
             if event.type == pygame.KEYDOWN and event.key == pygame.K_e:
                 if self.player.rect.colliderect(self.npc.rect.inflate(8,8)):
                     self.dialogue.open(self.npc.question)
@@ -82,8 +84,7 @@ class SceneManager:
         keys = pygame.key.get_pressed()
         if not (self.in_dialogue and self.dialogue.visible):
             self.player.handle_input(keys, dt)
-        
-        # Atualiza animações
+
         self.player.update(dt)
         if hasattr(self, 'npc'):
             self.npc.update(dt)
@@ -93,11 +94,9 @@ class SceneManager:
         self.player.draw(self.screen)
         self.npc.draw(self.screen)
         self.dialogue.draw()
-        
-        # Desenha vidas na tela
+
         self.draw_lives()
-        
-        # Desenha game over ou vitória
+
         if self.game_over:
             self.draw_game_over()
 

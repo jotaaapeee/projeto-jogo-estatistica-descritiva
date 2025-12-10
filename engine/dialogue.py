@@ -24,10 +24,11 @@ class Dialogue:
             elif event.key == pygame.K_DOWN:
                 self.selected = (self.selected + 1) % len(self.question['opcoes'])
             elif event.key == pygame.K_RETURN or event.key == pygame.K_SPACE:
-                self.result = (self.selected == self.question['correta'])
+                selected_option = self.question['opcoes'][self.selected]
+                correct_value = self.question['correta']
+                self.result = (str(selected_option) == str(correct_value))
                 self.visible = False
             elif event.key == pygame.K_ESCAPE:
-                # Fecha diálogo sem responder (não perde vida, não avança)
                 self.visible = False
 
     def draw(self):
@@ -39,7 +40,7 @@ class Dialogue:
         pygame.draw.rect(self.screen, (50,50,50), box_rect)
         pygame.draw.rect(self.screen, (200,200,200), box_rect, 2)
 
-        lines = textwrap.wrap(self.question['texto'], width=40)
+        lines = textwrap.wrap(self.question['texto'], width=80)
         y = box_rect.y + 8
         for line in lines:
             txt = self.font.render(line, True, (240,240,240))
@@ -50,8 +51,7 @@ class Dialogue:
             prefix = ">" if i == self.selected else " "
             txt = self.font.render(f"{prefix} {opt}", True, (220,220,220))
             self.screen.blit(txt, (box_rect.x + 16, y + i * (self.font.get_height() + 6)))
-        
-        # Dica para sair
+
         hint_txt = self.font.render("ESC para sair", True, (150, 150, 150))
         self.screen.blit(hint_txt, (box_rect.x + box_rect.width - hint_txt.get_width() - 8, 
                                      box_rect.y + box_rect.height - hint_txt.get_height() - 4))
