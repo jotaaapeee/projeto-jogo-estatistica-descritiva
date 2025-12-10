@@ -34,7 +34,7 @@
     },
     {
         "id": 4,
-        "texto": "Para atravessar a ponte instável, você observa os tempos registrados em segundos: 3, 8, 6, 10, 12, 15. Qual a mediana?",
+        "texto": "Para cruzar a ponte instável, você observa os tempos registrados em segundos: 3, 8, 6, 10, 12, 15. Qual a mediana?",
         "opcoes": [
             "7",
             "8",

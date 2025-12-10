@@ -106,25 +106,21 @@ class TileMap:
                 if is_stone:
                     if x == width - 2 and random.random() < 0.4:
                         self.map_data[y][x] = 31
-                    # Sombra na esquerda (parede esquerda próxima)
                     elif x == 1 and random.random() < 0.4:
                         self.map_data[y][x] = 29
-                    # Sombra acima (parede superior próxima)
                     elif y == 1 and random.random() < 0.4:
                         self.map_data[y][x] = 55
-                    # Sombra embaixo (parede inferior próxima)
                     elif y == height - 2 and random.random() < 0.4:
                         self.map_data[y][x] = 5
-                    
-                    # Cantos com sombra
+
                     if x == 1 and y == 1 and random.random() < 0.6:
-                        self.map_data[y][x] = 4  # Canto superior esquerdo
+                        self.map_data[y][x] = 4
                     elif x == width - 2 and y == 1 and random.random() < 0.6:
-                        self.map_data[y][x] = 6  # Canto superior direito
+                        self.map_data[y][x] = 6
                     elif x == 1 and y == height - 2 and random.random() < 0.6:
-                        self.map_data[y][x] = 54  # Canto inferior esquerdo
+                        self.map_data[y][x] = 54
                     elif x == width - 2 and y == height - 2 and random.random() < 0.6:
-                        self.map_data[y][x] = 56  # Canto inferior direito
+                        self.map_data[y][x] = 56
     
     def _generate_room(self, width, height, top_left, top_right, top, bottom_left, 
                       bottom_right, bottom, left, right, floor):
